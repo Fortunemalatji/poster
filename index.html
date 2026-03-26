@@ -20,14 +20,15 @@
 body {
   background:#2a0810;
   min-height:100vh;
-  display:flex;justify-content:center;align-items:flex-start;
-  padding:30px 20px;
+  display:flex;justify-content:center;align-items:stretch;
+  padding:0;
   font-family:'Cormorant Garamond',serif;
 }
 
 /* ══════════════ POSTER ══════════════ */
 .poster {
-  width:820px;
+  width:100%;
+  min-height:100vh;
   position:relative;
   overflow:hidden;
 }
@@ -95,7 +96,7 @@ body {
 /* ══════════════ CONTENT CARD ══════════════ */
 .poster-card {
   position:relative;z-index:10;
-  margin:40px 35px;
+  margin:24px;
   background: rgba(255, 255, 255, 0.45);
   backdrop-filter: blur(25px) saturate(150%);
   -webkit-backdrop-filter: blur(25px) saturate(150%);
@@ -158,42 +159,50 @@ body {
 
 /* ══════════════ PROGRAMME ══════════════ */
 .prog-wrap {
-  padding:0 50px 28px;
+  padding:0 42px 22px;
   text-align:left;
 }
 
 .grid {
   display:grid;grid-template-columns:1fr 1fr;
-  gap:0 14px;
+  gap:12px 16px;
 }
 
 .sh {
   background:linear-gradient(90deg, #8a1d2e, #630a18, #8a1d2e);
-  border-radius:4px;padding:5px 10px 5px 8px;margin-bottom:5px;
-  display:flex;align-items:center;gap:7px;
+  border-radius:4px;padding:4px 9px 4px 7px;margin-bottom:4px;
+  display:flex;align-items:center;gap:6px;
   border:1px solid rgba(198, 149, 74, 0.35);
-  box-shadow:inset 0 1px 0 rgba(255,175,140,0.1),0 2px 8px rgba(63,10,24,0.2);
+  box-shadow:inset 0 1px 0 rgba(255,175,140,0.1),0 1px 6px rgba(63,10,24,0.16);
 }
 .sh-d{
-  width:7px;height:7px;
+  width:6px;height:6px;
   background:linear-gradient(135deg,var(--gold2),var(--gold));
   transform:rotate(45deg);flex-shrink:0;
-  box-shadow:0 0 5px rgba(201,149,74,0.5);
+  box-shadow:0 0 4px rgba(201,149,74,0.45);
 }
-.sh-t{font-family:'Cinzel',serif;font-weight:700;font-size:10px;color:var(--pearl);letter-spacing:0.1em;text-transform:uppercase;}
+.sh-t{font-family:'Cinzel',serif;font-weight:700;font-size:9px;color:var(--pearl);letter-spacing:0.08em;text-transform:uppercase;}
 .sh-full{grid-column:1/-1;}
 .col-l{grid-column:1;}
-.col-r{grid-column:2;}
+.col-r{grid-column:2;margin-left:0;}
 .gt{margin-top:8px;}
+.service-block{display:flex;flex-direction:column;gap:0;}
+.svc-fri-main{grid-column:1;grid-row:1;}
+.svc-fri-evening{grid-column:2;grid-row:1;}
+.svc-sat-early{grid-column:1;grid-row:2;}
+.svc-sat-main{grid-column:2;grid-row:2;}
+.svc-sat-afternoon{grid-column:1;grid-row:3;}
+.svc-sun-early{grid-column:2;grid-row:3;}
+.svc-sun-main{grid-column:1 / -1;grid-row:4;}
 
-.pi{display:flex;align-items:flex-start;gap:6px;margin-bottom:3px;padding-left:1px;}
-.sq{width:8px;height:8px;border:1.5px solid rgba(139,48,64,0.8);flex-shrink:0;margin-top:3.5px;background:rgba(201,149,74,0.08);}
-.pt{font-family:'Cormorant Garamond',serif;font-size:12.8px;color:var(--text-primary);line-height:1.42;}
+.pi{display:flex;align-items:flex-start;gap:5px;margin-bottom:2px;padding-left:1px;}
+.sq{width:7px;height:7px;border:1.5px solid rgba(139,48,64,0.8);flex-shrink:0;margin-top:3px;background:rgba(201,149,74,0.08);}
+.pt{font-family:'Cormorant Garamond',serif;font-size:11.9px;color:var(--text-primary);line-height:1.28;}
 .pt b{font-weight:700;color:var(--burg);}
 
-.spi{display:flex;align-items:flex-start;gap:6px;margin-bottom:2px;padding-left:14px;}
-.ssq{width:7px;height:7px;border:1.5px solid rgba(139,48,64,0.7);flex-shrink:0;margin-top:3px;}
-.st{font-family:'Cormorant Garamond',serif;font-size:12px;color:#2a0810;line-height:1.35;}
+.spi{display:flex;align-items:flex-start;gap:5px;margin-bottom:1px;padding-left:12px;}
+.ssq{width:6px;height:6px;border:1.5px solid rgba(139,48,64,0.7);flex-shrink:0;margin-top:3px;}
+.st{font-family:'Cormorant Garamond',serif;font-size:11.3px;color:#2a0810;line-height:1.24;}
 
 .mini-div{height:1px;background:linear-gradient(90deg,transparent,rgba(107,13,30,0.28),transparent);margin:6px 0;}
 
@@ -220,11 +229,11 @@ body {
 }
 /* ── Responsiveness ── */
 @media (max-width: 720px) {
-  body { padding: 10px; }
+  body { padding: 0; }
   .bg-base { background: radial-gradient(circle at 50% 25%, #007a6c 0%, #004d44 60%, #002b26 100%); }
   .poster { width: 100%; border-radius: 0; }
   .poster-card { 
-    margin: 20px 10px; padding-bottom: 25px; 
+    margin: 16px; padding-bottom: 25px; 
     background: rgba(255, 255, 255, 0.28); backdrop-filter: blur(16px);
   }
   .scripture-wrap { margin: 0 40px; padding: 10px 0; }
@@ -237,17 +246,27 @@ body {
   .footer-oval { flex-wrap: wrap; gap: 20px; border-radius: 15px; padding: 15px 10px; }
   .fi { width: 45%; justify-content: center; }
   .sub-title { font-size: 32px; }
-  .grid { grid-template-columns: 1fr; }
-  .col-r { grid-column: 1; }
+  .grid { grid-template-columns: 1fr; gap: 12px; }
+  .svc-fri-main,
+  .svc-fri-evening,
+  .svc-sat-early,
+  .svc-sat-main,
+  .svc-sat-afternoon,
+  .svc-sun-early,
+  .svc-sun-main {
+    grid-column: 1;
+    grid-row: auto;
+  }
+  .col-r { grid-column: 1; margin-left: 0; }
 }
 
 @media (max-width: 480px) {
-  body { padding: 5px; }
+  body { padding: 0; }
   .bg-base { background: radial-gradient(circle at 50% 20%, #009688 0%, #007a6c 50%, #003a33 100%); }
   .scripture-wrap { margin: 0 10px; }
   .st, .pt { font-size: 16px; line-height: 1.5; }
   .poster-card { 
-    margin: 10px 5px; padding: 20px 8px; 
+    margin: 12px; padding: 20px 8px; 
     background: rgba(255, 255, 255, 0.32); backdrop-filter: blur(14px);
     box-shadow: 0 10px 30px rgba(0,0,0,0.3);
   }
@@ -308,35 +327,50 @@ body {
 
     <div class="prog-wrap">
       <div class="grid">
-
-        <div class="sh sh-full"><div class="sh-d"></div><div class="sh-t">Friday Main Service &nbsp;10:00 AM</div></div>
-
-        <div class="col-l">
+        <div class="service-block svc-fri-main">
+          <div class="sh"><div class="sh-d"></div><div class="sh-t">Friday Main Service &nbsp;10:00 AM</div></div>
           <div class="pi"><div class="sq"></div><div class="pt"><b>MC:</b> Mrs Ramphisa</div></div>
           <div class="pi"><div class="sq"></div><div class="pt"><b>Word of Welcome:</b> Miss Smangele Sibiya</div></div>
-          <div class="pi"><div class="sq"></div><div class="pt"><b>Offering:</b> Ps Mabuza</div></div>
           <div class="pi"><div class="sq"></div><div class="pt"><b>Declaration:</b> Apostle Shelembe</div></div>
           <div class="pi"><div class="sq"></div><div class="pt"><b>Offering:</b> Ps Mabuza</div></div>
           <div class="pi"><div class="sq"></div><div class="pt">Izibongu Zika Jesu: <b>Ps Silomo</b></div></div>
           <div class="pi"><div class="sq"></div><div class="pt"><b>Word of God:</b></div></div>
-          <div class="spi"><div class="ssq"></div><div class="st">Ps Shikwambane</div></div>
-          <div class="spi"><div class="ssq"></div><div class="st">Ms Dlamini</div></div>
-          <div class="spi"><div class="ssq"></div><div class="st">Ps Maria Mahlangu</div></div>
-          <div class="spi"><div class="ssq"></div><div class="st">Bro Sthabiso Sithole</div></div>
-          <div class="spi"><div class="ssq"></div><div class="st">Ps Masilela</div></div>
-          <div class="spi"><div class="ssq"></div><div class="st">Ps Ndaba</div></div>
-          <div class="spi"><div class="ssq"></div><div class="st">Ps Matabane</div></div>
+          <div class="spi"><div class="ssq"></div><div class="st">Ps Shikwambane <b>~ "Father fortgive them..." ~Luke 23:34</b></div></div>
+          <div class="spi"><div class="ssq"></div><div class="st">Ms Dlamini <b>~ "You will be with me in paradise..."</b></div></div>
+          <div class="spi"><div class="ssq"></div><div class="st">Ps Maria Mahlangu <b>~ "Woman behold your son..."</b></div></div>
+          <div class="spi"><div class="ssq"></div><div class="st">Bro Sthabiso Sithole <b>~ "My God, ...why have you forsaken me"</b></div></div>
+          <div class="spi"><div class="ssq"></div><div class="st">Ps Masilela <b>~ "I thirst" ~ John 19:28</b></div></div>
+          <div class="spi"><div class="ssq"></div><div class="st">Ps Ndaba <b>~ "It is finished"</b></div></div>
+          <div class="spi"><div class="ssq"></div><div class="st">Ps Matabane <b>~ "Father unto you i commit my spirit"</b></div></div>
         </div>
 
-        <div class="col-r">
+        <div class="service-block svc-fri-evening">
           <div class="sh"><div class="sh-d"></div><div class="sh-t">Friday Evening Service &nbsp;6:00 PM</div></div>
-          <div class="pi"><div class="sq"></div><div class="pt"><b>MC:</b> Mrs Petla</div></div>
+          <div class="pi"><div class="sq"></div><div class="pt"><b>MC:</b> </div></div>
           <div class="pi"><div class="sq"></div><div class="pt"><b>Word of Welcome:</b> Mrs Nhlapho</div></div>
           <div class="pi"><div class="sq"></div><div class="pt"><b>Word of Encouragement:</b> Mr Baloyi</div></div>
           <div class="pi"><div class="sq"></div><div class="pt"><b>Offering:</b> Mrs Mthangayi</div></div>
           <div class="pi"><div class="sq"></div><div class="pt"><b>Word of God:</b> Evangelist Chilli</div></div>
           <div class="pi"><div class="sq"></div><div class="pt"><b>Announcement:</b> Mrs Ramphisa</div></div>
-          <div class="mini-div"></div>
+        </div>
+
+        <div class="service-block svc-sat-early">
+          <div class="sh"><div class="sh-d"></div><div class="sh-t">Saturday Early Service &nbsp;6:00 AM</div></div>
+          <div class="pi"><div class="sq"></div><div class="pt"><b>Word of God:</b> Ps Dlamini</div></div>
+          <div class="pi"><div class="sq"></div><div class="pt"><b>Announcement:</b> Mrs Ramphisa</div></div>
+        </div>
+
+        <div class="service-block svc-sat-main">
+          <div class="sh"><div class="sh-d"></div><div class="sh-t">Saturday Service &nbsp;10:00 AM</div></div>
+          <div class="pi"><div class="sq"></div><div class="pt"><b>MC:</b> Ps Koos Mahlangu</div></div>
+          <div class="pi"><div class="sq"></div><div class="pt"><b>Word of Welcome:</b> Ntombi Mkhonza</div></div>
+          <div class="pi"><div class="sq"></div><div class="pt"><b>Word of Encouragement:</b> Miss Maru Melatu</div></div>
+          <div class="pi"><div class="sq"></div><div class="pt"><b>Offering:</b> Ms Makhaphela</div></div>
+          <div class="pi"><div class="sq"></div><div class="pt"><b>Word of God:</b> Bishop E. Mthombeni</div></div>
+          <div class="pi"><div class="sq"></div><div class="pt"><b>Announcement:</b> Mrs Ramphisa</div></div>
+        </div>
+
+        <div class="service-block svc-sat-afternoon">
           <div class="sh"><div class="sh-d"></div><div class="sh-t">Saturday Afternoon Service &nbsp;4:00 PM</div></div>
           <div class="pi"><div class="sq"></div><div class="pt"><b>MC:</b> Mrs Shelembe</div></div>
           <div class="pi"><div class="sq"></div><div class="pt"><b>Word of Welcome:</b> Bro Thato Maahlo</div></div>
@@ -345,24 +379,13 @@ body {
           <div class="pi"><div class="sq"></div><div class="pt"><b>Word of God:</b> Apostle BD Thobela</div></div>
         </div>
 
-
-
-        <div class="col-l gt">
-          <div class="sh"><div class="sh-d"></div><div class="sh-t">Saturday Early Service &nbsp;6:00 AM</div></div>
-          <div class="pi"><div class="sq"></div><div class="pt"><b>Word of God:</b> Ps Dlamini</div></div>
+        <div class="service-block svc-sun-early">
+          <div class="sh"><div class="sh-d"></div><div class="sh-t">Sunday Early Service &nbsp;6:00 AM</div></div>
+          <div class="pi"><div class="sq"></div><div class="pt"><b>Word of God:</b> Ps Masuku</div></div>
           <div class="pi"><div class="sq"></div><div class="pt"><b>Announcement:</b> Mrs Ramphisa</div></div>
-          <div style="margin-top:7px">
-            <div class="sh"><div class="sh-d"></div><div class="sh-t">Saturday Service &nbsp;10:00 AM</div></div>
-            <div class="pi"><div class="sq"></div><div class="pt"><b>MC:</b> Ps Koos Mahlangu</div></div>
-            <div class="pi"><div class="sq"></div><div class="pt"><b>Word of Welcome:</b> Ntombi Mkhonza</div></div>
-            <div class="pi"><div class="sq"></div><div class="pt"><b>Word of Encouragement:</b> Miss Maru Melatu</div></div>
-            <div class="pi"><div class="sq"></div><div class="pt"><b>Offering:</b> Ms Makhaphela</div></div>
-            <div class="pi"><div class="sq"></div><div class="pt"><b>Word of God:</b> Bishop E. Mthombeni</div></div>
-            <div class="pi"><div class="sq"></div><div class="pt"><b>Announcement:</b> Mrs Ramphisa</div></div>
-          </div>
         </div>
 
-        <div class="col-r gt">
+        <div class="service-block svc-sun-main">
           <div class="sh"><div class="sh-d"></div><div class="sh-t">Sunday Main Service &nbsp;10:00 AM</div></div>
           <div class="pi"><div class="sq"></div><div class="pt"><b>MC:</b> Ps Masina</div></div>
           <div class="pi"><div class="sq"></div><div class="pt"><b>Word of Welcome:</b> Ps Masina</div></div>
